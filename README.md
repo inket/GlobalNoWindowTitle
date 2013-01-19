@@ -11,6 +11,11 @@
 
 - Only tested on 10.8.2 with EasySIMBL.
 
+-
+
+Quick tip: If you want to limit it to a single app, see line 31 in *GlobalNoWindowTitle-Info.plist*, and change the **\*** to your app's bundle id. E.g. *com.apple.finder* for to limit it to Finder.
+
+
 #### Download
 [Here](http://d.pr/ktEQ)
 
