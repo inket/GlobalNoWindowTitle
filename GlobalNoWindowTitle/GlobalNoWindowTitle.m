@@ -25,6 +25,12 @@ static GlobalNoWindowTitle* plugin = nil;
     [self new_setTitle:@"			"]; // 3 TABs string to leave room for clickable area in document apps.
 }
 
+#pragma mark Safari's setTitle: replacement
+
+- (void)new_safariSetTitle:(NSString*)title {
+    [self new_safariSetTitle:@"			"];
+}
+
 @end
 
 
@@ -61,6 +67,14 @@ static GlobalNoWindowTitle* plugin = nil;
 	new = class_getInstanceMethod(class, @selector(new_setTitle:));
 	old = class_getInstanceMethod(class, @selector(setTitle:));
 	method_exchangeImplementations(new, old);
+    
+    if ([[[[NSBundle mainBundle] bundleIdentifier] lowercaseString] isEqualToString:@"com.apple.safari"])
+    {
+        class = NSClassFromString(@"TitleBarButton");
+        new = class_getInstanceMethod(class, @selector(new_safariSetTitle:));
+        old = class_getInstanceMethod(class, @selector(setTitle:));
+        method_exchangeImplementations(new, old);
+    }
     
     for (NSWindow *window in [[NSApplication sharedApplication] windows])
         [window setTitle:@"			"];
