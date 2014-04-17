@@ -9,7 +9,7 @@
 
 -
 
-- Only tested on 10.8.2 with EasySIMBL.
+- Tested on 10.8.2 and 10.9.2 with EasySIMBL.
 
 -
 
@@ -17,7 +17,7 @@ Quick tip: If you want to limit it to a single app, see line 31 in *GlobalNoWind
 
 
 #### Download
-[Here](http://d.pr/ktEQ)
+[Releases](https://github.com/inket/GlobalNoWindowTitle/releases)
 
 #### License
 This program is licensed under GNU GPL v3.0 (see LICENSE)
